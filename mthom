@@ -1,0 +1,47 @@
+
+import random
+
+# Predefined crypto dataset
+crypto_db = {
+    "Bitcoin": {
+        "price_trend": "rising",
+        "market_cap": "high",
+        "energy_use": "high",
+        "sustainability_score": 3/10
+    },
+    "Ethereum": {
+        "price_trend": "stable",
+        "market_cap": "high",
+        "energy_use": "medium",
+        "sustainability_score": 6/10
+    },
+    "Cardano": {
+        "price_trend": "rising",
+        "market_cap": "medium",
+        "energy_use": "low",
+        "sustainability_score": 8/10
+    }
+}
+
+# Chatbot logic
+def get_recommendation(user_query):
+    if "trending" in user_query:
+        trending_coins = [coin for coin, data in crypto_db.items() if data["price_trend"] == "rising"]
+        return f"Check out these trending coins: {', '.join(trending_coins)}!"
+    elif "sustainable" in user_query:
+        sustainable_coins = [coin for coin, data in crypto_db.items() if data["sustainability_score"] > 7/10]
+        return f"Invest in {', '.join(sustainable_coins)}! They're eco-friendly and have long-term potential!"
+    elif "long-term" in user_query:
+        long_term_coins = [coin for coin, data in crypto_db.items() if data["price_trend"] == "rising" and data["sustainability_score"] > 5/10]
+        return f"For long-term growth, consider {', '.join(long_term_coins)}!"
+    else:
+        return "I'm not sure I understand your query. Try asking about trending coins or sustainable investments!"
+
+# Test the bot
+print("Welcome to CryptoBuddy! Ask me a question about cryptocurrency.")
+while True:
+    user_query = input("You: ").lower()
+    if "quit" in user_query:
+        break
+    print("CryptoBuddy:", get_recommendation(user_query))
+    print("Disclaimer: Crypto is risky—always do your own research!")
