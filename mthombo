@@ -1,0 +1,70 @@
+*Part 1: Theoretical Understanding*
+
+1. Short Answer Questions:
+    - Q1: TensorFlow and PyTorch are both popular deep learning frameworks. TensorFlow is known for its production-ready features, scalability, and support for distributed training, while PyTorch is known for its ease of use, rapid prototyping, and dynamic computation graph. Choose TensorFlow for large-scale production environments and PyTorch for research, rapid prototyping, or complex model development.
+    - Q2: Jupyter Notebooks are useful for AI development in two ways: (1) exploratory data analysis and visualization, and (2) prototyping and testing machine learning models. They provide an interactive environment for writing code, visualizing results, and documenting insights.
+    - Q3: spaCy enhances NLP tasks compared to basic Python string operations by providing pre-trained models, efficient tokenization, entity recognition, and language modeling capabilities. It allows for more accurate and efficient processing of natural language data.
+2. Comparative Analysis:
+    - Scikit-learn is suitable for classical machine learning tasks, such as classification, regression, and clustering, while TensorFlow is geared towards deep learning tasks. Scikit-learn is generally easier to use for beginners, while TensorFlow requires more expertise. Both libraries have strong community support, but TensorFlow's community is larger and more diverse.
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+
+# Load Iris dataset
+iris = load_iris()
+X = iris.data[:, :2]  # we only take the first two features.
+y = iris.target
+
+# Train/Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train Decision Tree Classifier
+clf = DecisionTreeClassifier(random_state=42)
+clf.fit(X_train, y_train)
+
+# Evaluate Model
+y_pred = clf.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Precision:", precision_score(y_test, y_pred, average='weighted'))
+print("Recall:", recall_score(y_test, y_pred, average='weighted'))
+
+import tensorflow as tf
+from tensorflow.keras.datasets import mnist
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+
+# Load MNIST dataset
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+# Normalize pixel values
+x_train = x_train.astype('float32') / 255
+x_test = x_test.astype('float32') / 255
+
+# Define CNN model
+model = Sequential()
+model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
+model.add(MaxPooling2D((2, 2)))
+model.add(Flatten())
+model.add(Dense(64, activation='relu'))
+model.add(Dense(10, activation='softmax'))
+
+# Compile model
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+# Train model
+model.fit(x_train, y_train, epochs=5, batch_size=128, validation_data=(x_test, y_test))
+
+import spacy
+
+# Load pre-trained model
+nlp = spacy.load("en_core_web_sm")
+
+# Process text
+text = "Apple is a technology company based in California."
+doc = nlp(text)
+
+# Extract named entities
+for ent in doc.ents:
+    print(ent.text, ent.label_)
