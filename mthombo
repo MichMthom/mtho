@@ -1,102 +1,53 @@
-import pandas as pd
-from aif360.algorithms.preprocessing import Reweighing
-from aif360.datasets import BinaryLabelDataset
+*Assignment 1: Fundamentals of Software Testing*
 
-# Load the COMPAS dataset
-compas_df = pd.read_csv('compas.csv')
+Part 1: Short Answer Questions
+1. *What is the primary purpose of software testing?*
 
-# Convert the dataset to a BinaryLabelDataset
-dataset = BinaryLabelDataset(df=compas_df, label_names=['two_year_recid'], protected_attribute_names=['race'], favorable_label=0, unfavorable_label=1)
+The primary purpose of software testing is to identify defects, bugs, and issues in the software before it is released to users, ensuring that the software meets the required quality standards and is reliable software and meets user needs.
 
-# Implement Reweighing
-rw = Reweighing(unprivileged_groups=[{'race': 1}], privileged_groups=[{'race': 0}])
-transformed_dataset = rw.fit_transform(dataset)Short Answer Questions
-Q1: Algorithmic Bias
-Algorithmic bias refers to the unfair or discriminatory outcomes produced by AI systems due to biases in the data, algorithms, or design. Two examples of algorithmic bias include:
+2. *What is the difference between an error and a defect?*
 
-- *Biased hiring tools*: AI-powered hiring tools that penalize female candidates or candidates from underrepresented groups.
-- *Facial recognition systems*: Facial recognition systems that misidentify minorities at higher rates, leading to potential wrongful arrests or privacy violations.
+An error is a human mistake or action that produces an unintended result, while a defect is a flaw or imperfection in the software that causes it to behave in an unintended way. Errors can lead to defects, but they are not the same thing.
 
-Q2: Transparency and Explainability
-Transparency in AI refers to the ability to understand how AI systems work and make decisions. Explainability, on the other hand, refers to the ability to understand why a specific decision was made. Both transparency and explainability are important because they enable trust, accountability, and fairness in AI systems.
+3. *What is the "Pesticide Paradox" in software testing?*
 
-Q3: GDPR Impact on AI Development
-The General Data Protection Regulation (GDPR) impacts AI development in the EU by requiring organizations to obtain explicit consent from users for data collection and processing. GDPR also emphasizes transparency, user control, and accountability, which can influence the design and deployment of AI systems.
+The "Pesticide Paradox" refers to the phenomenon where repeated use of the same set of test cases can lead to a decrease in their effectiveness in detecting new defects. This is because defects that are not caught by the existing test cases may not be detected, and new defects may be introduced that are not covered by the existing test cases.
 
-Ethical Principles Matching
-A) Justice: Fair distribution of AI benefits and risks.
-B) Non-maleficence: Ensuring AI does not harm individuals or society.
-C) Autonomy: Respecting users’ right to control their data and decisions.
-D) Sustainability: Designing AI to be environmentally friendly.
+Part 2: Essay Question
+*Discuss the importance of early testing in the Software Development Lifecycle (SDLC).*
 
-Case Study Analysis
-1. *Biased Hiring Tool*
+Early testing in the SDLC is crucial because it helps identify defects and issues early in the development cycle, reducing the cost and effort required to fix them. By testing early and often, developers can ensure that the software meets the required quality standards and is reliable, stable, and performs as expected.
 
-- *Source of bias*: The training data used to develop the hiring tool was biased towards male candidates, resulting in the tool penalizing female candidates.
-- *Fixes*:
-    1. *Data preprocessing*: Ensure the training data is diverse and representative of all candidates.
-    2. *Model design*: Use fairness metrics to evaluate and mitigate bias in the model.
-    3. *Human oversight*: Implement human oversight to review and correct AI-driven decisions.
-- *Metrics to evaluate fairness*: Use metrics such as demographic parity, equal opportunity, and predictive rate parity to evaluate fairness post-correction.
+Early testing also helps to:
 
-Case 2: Facial Recognition in Policing
-- *Ethical risks*: Wrongful arrests, privacy violations, and perpetuation of existing biases.
-- *Policies for responsible deployment*:
-    1. *Transparency*: Ensure transparency about the use of facial recognition technology and its limitations.
-    2. *Human oversight*: Implement human oversight to review and correct AI-driven decisions.
-    3. *Regular audits*: Conduct regular audits to ensure the technology is fair and unbiased.
+- *Reduce costs*: Fixing defects early in the development cycle is less expensive than fixing them later on.
+- *Improve quality*: Early testing ensures that the software meets the required quality standards, resulting in a better user experience.
+- *Increase confidence*: Thorough testing gives developers and users confidence in the software's ability to perform as expected.
 
+Part 3: Multiple Choice Questions
+1. *What is the main purpose of static testing?*
 
-Part 3: Practical Audit
-Example Report
-The COMPAS dataset audit revealed significant racial bias in the risk scores, with African American defendants being more likely to be misclassified as high-risk. To mitigate this bias, we implemented Reweighing, which reduced the disparity in false positive rates. Our findings highlight the importance of auditing AI systems for bias and fairness.
+a) To execute the software and test its functionality
+b) To review and analyze the software code and documentation without executing it
+c) To test the software's performance and scalability
+d) To identify defects in the software's user interface
 
-*Example Findings:*
+Answer: b) To review and analyze the software code and documentation without executing it
 
-- Disparity in false positive rates: 20% higher for African American defendants compared to Caucasian defendants.
-- After implementing Reweighing: Disparity reduced to 5%.
+2. *What type of testing involves executing the software and testing its functionality?*
 
-Example Code
-import pandas as pd
-from aif360.algorithms.preprocessing import Reweighing
-from aif360.datasets import BinaryLabelDataset
+a) Static testing
+b) Dynamic testing
+c) Unit testing
+d) Integration testing
 
-Load the COMPAS dataset
-compas_df = pd.read_csv('compas.csv')
+Answer: b) Dynamic testing
 
-Convert the dataset to a BinaryLabelDataset
-dataset = BinaryLabelDataset(df=compas_df, label_names=['two_year_recid'], protected_attribute_names=['race'], favorable_label=0, unfavorable_label=1)
+3. *What is the benefit of early testing in the SDLC?*
 
-Implement Reweighing
-rw = Reweighing(unprivileged_groups=[{'race': 1}], privileged_groups=[{'race': 0}])
-transformed_dataset = rw.fit_transform(dataset)
-Part 4: Ethical Reflection
-Example Reflection
-When developing an AI-powered healthcare system, I will prioritize transparency, accountability, and fairness. This includes providing clear explanations of AI-driven decisions, implementing mechanisms for accountability and oversight, and ensuring that the system is fair and unbiased.
+a) It increases the cost of software development
+b) It reduces the quality of the software
+c) It helps identify defects early in the development cycle
+d) It is not necessary for software development
 
-*Example Commitments:*
-
-- Transparency: Provide clear explanations of AI-driven decisions and their underlying logic.
-- Accountability: Implement mechanisms for accountability and oversight to ensure that the AI system is fair and unbiased.
-- Fairness: Ensure that the AI system is fair and unbiased, and that it does not perpetuate existing biases or discriminatory outcomes.
-
-Bonus Task: Policy Proposal
-Example Policy Proposal
-*Ethical AI Use in Healthcare Policy*
-
-*Purpose:* Ensure that AI systems in healthcare are fair, transparent, and accountable.
-
-*Scope:* All AI systems used in healthcare, including diagnostic and treatment recommendation systems.
-
-*Key Provisions:*
-
-- Patient consent protocols: Obtain explicit consent from patients for data collection and processing.
-- Bias mitigation strategies: Implement fairness metrics and bias mitigation techniques to reduce disparities in outcomes.
-- Transparency requirements: Provide clear explanations of AI-driven decisions and their underlying logic.
-
-*Implementation:*
-
-- Conduct regular audits to ensure compliance with policy provisions.
-- Provide training and education for healthcare professionals on AI ethics and responsible AI use.
-
-By implementing this policy, we can ensure that AI systems in healthcare are used responsibly and prioritize patient safety and well-being.
+Answer: c) It helps identify defects early in the development cycle
