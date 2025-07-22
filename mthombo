@@ -1,20 +1,28 @@
+*1. Understand different types of software testing and their significance.*
 
-*1. What is the main focus of Functional Testing?*
+Software testing types include:
+- Functional testing (unit, integration, system, acceptance)
+- Non-functional testing (performance, security, usability)
+- Each type ensures software quality, reliability, and performance.
 
-Functional testing focuses on ensuring the software meets specified requirements and works as expected. It verifies that the software behaves as intended and identifies defects or bugs.
+*2. Differentiate between functional and non-functional testing.*
 
-*2. Which of the following is a common tool used for Unit Testing?*
+- Functional testing: Verifies software meets requirements (what the software does).
+- Non-functional testing: Evaluates performance, security, usability, and other aspects (how the software performs).
 
-JUnit is a popular unit testing framework for Java programming language. It's widely used for writing and running unit tests.
+*3. Learn the key differences between unit testing and integration testing.*
 
-*3. What does Performance Testing primarily focus on?*
+- Unit testing: Tests individual code units (methods, classes).
+- Integration testing: Tests interactions between code units.
 
-Performance testing evaluates a system's performance, scalability, and reliability under various conditions, such as high traffic or load.
+*4. Explore system and acceptance testing and their role in software quality.*
 
-*4. Which type of testing is specifically used to validate that a particular defect has been fixed?*
+- System testing: Verifies entire system's functionality.
+- Acceptance testing: Ensures software meets user requirements and is ready for deployment.
 
-Retesting, also known as confirmation testing, verifies that a specific defect or bug has been fixed.
+*5. Identify common types of non-functional testing and their importance.*
 
-*5. What is one disadvantage of Manual Testing?*
-
-Manual testing is prone to human error due to factors like fatigue, lack of attention to detail, or misinterpretation of test cases.
+- Performance testing: Evaluates system performance under load.
+- Security testing: Identifies vulnerabilities and ensures data protection.
+- Usability testing: Ensures user-friendly interface and experience.
+- Compatibility testing: Verifies software works on different platforms and environments.
