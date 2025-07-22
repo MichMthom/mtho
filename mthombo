@@ -1,53 +1,20 @@
-*Assignment 1: Fundamentals of Software Testing*
 
-Part 1: Short Answer Questions
-1. *What is the primary purpose of software testing?*
+*1. What is the main focus of Functional Testing?*
 
-The primary purpose of software testing is to identify defects, bugs, and issues in the software before it is released to users, ensuring that the software meets the required quality standards and is reliable software and meets user needs.
+Functional testing focuses on ensuring the software meets specified requirements and works as expected. It verifies that the software behaves as intended and identifies defects or bugs.
 
-2. *What is the difference between an error and a defect?*
+*2. Which of the following is a common tool used for Unit Testing?*
 
-An error is a human mistake or action that produces an unintended result, while a defect is a flaw or imperfection in the software that causes it to behave in an unintended way. Errors can lead to defects, but they are not the same thing.
+JUnit is a popular unit testing framework for Java programming language. It's widely used for writing and running unit tests.
 
-3. *What is the "Pesticide Paradox" in software testing?*
+*3. What does Performance Testing primarily focus on?*
 
-The "Pesticide Paradox" refers to the phenomenon where repeated use of the same set of test cases can lead to a decrease in their effectiveness in detecting new defects. This is because defects that are not caught by the existing test cases may not be detected, and new defects may be introduced that are not covered by the existing test cases.
+Performance testing evaluates a system's performance, scalability, and reliability under various conditions, such as high traffic or load.
 
-Part 2: Essay Question
-*Discuss the importance of early testing in the Software Development Lifecycle (SDLC).*
+*4. Which type of testing is specifically used to validate that a particular defect has been fixed?*
 
-Early testing in the SDLC is crucial because it helps identify defects and issues early in the development cycle, reducing the cost and effort required to fix them. By testing early and often, developers can ensure that the software meets the required quality standards and is reliable, stable, and performs as expected.
+Retesting, also known as confirmation testing, verifies that a specific defect or bug has been fixed.
 
-Early testing also helps to:
+*5. What is one disadvantage of Manual Testing?*
 
-- *Reduce costs*: Fixing defects early in the development cycle is less expensive than fixing them later on.
-- *Improve quality*: Early testing ensures that the software meets the required quality standards, resulting in a better user experience.
-- *Increase confidence*: Thorough testing gives developers and users confidence in the software's ability to perform as expected.
-
-Part 3: Multiple Choice Questions
-1. *What is the main purpose of static testing?*
-
-a) To execute the software and test its functionality
-b) To review and analyze the software code and documentation without executing it
-c) To test the software's performance and scalability
-d) To identify defects in the software's user interface
-
-Answer: b) To review and analyze the software code and documentation without executing it
-
-2. *What type of testing involves executing the software and testing its functionality?*
-
-a) Static testing
-b) Dynamic testing
-c) Unit testing
-d) Integration testing
-
-Answer: b) Dynamic testing
-
-3. *What is the benefit of early testing in the SDLC?*
-
-a) It increases the cost of software development
-b) It reduces the quality of the software
-c) It helps identify defects early in the development cycle
-d) It is not necessary for software development
-
-Answer: c) It helps identify defects early in the development cycle
+Manual testing is prone to human error due to factors like fatigue, lack of attention to detail, or misinterpretation of test cases.
